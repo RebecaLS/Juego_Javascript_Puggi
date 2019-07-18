@@ -1,0 +1,18 @@
+//este literal mantiene el marcador del juego con su puntuación
+const ScoreBoard = {
+  ctx: undefined,
+
+  init: function (ctx) {
+    this.ctx = ctx
+    this.ctx.font = "30px sans-serif"
+  },
+  
+  update: function (score) {
+    // this.ctx.fillStyle = "green";
+    // this.ctx.fillText(Math.floor(score), 250, 50);
+    
+
+    // this.newBoard = new Board(this.ctx, 50, 20 , 150, 100);
+    // this.newBoard.draw()
+  }
+};
