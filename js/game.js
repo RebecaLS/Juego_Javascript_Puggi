@@ -297,7 +297,7 @@ findCollisionCats(){
      )) {
       
       arr.splice(idx, 1)
-
+      console.log(idx)
       //  this.collisionCats.push(cat)//elemento con el que choca
        // console.log(this.colisionBones)
        //lo guardo en un array y su longitud serán los huesos que ha cogido
@@ -328,6 +328,6 @@ findCollisionCats(){
 
   gameOver: function() {            //Gameover detiene el juego.
     clearInterval(this.interval)
-    
+    document.getElementById("id_gamover").style.display = "block";
   }
 }
