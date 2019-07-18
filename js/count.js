@@ -1,5 +1,5 @@
 //este literal mantiene el marcador del juego con su puntuación
-const ScoreBoard = {
+const Count = {
   ctx: undefined,
 
   init: function (ctx) {
@@ -8,11 +8,7 @@ const ScoreBoard = {
   },
   
   update: function (count) {
-    // this.ctx.fillStyle = "blue";
-    // this.ctx.fillText(Math.floor(count), 450, 50);
-    
-
-    // this.newBoard = new Board(this.ctx, 50, 20 , 150, 100);
-    // this.newBoard.draw()
+    this.ctx.fillStyle = "yellow";
+    this.ctx.fillText(Math.floor(count), 250, 50);
   }
 };

@@ -15,6 +15,7 @@ const Game = {
   actualBone: undefined,
   framesCounter: 0,
   score: undefined,
+  // count: undefined,  
   numHearts: 0,
   numBones: 0,
   numCats: 0,
@@ -50,7 +51,10 @@ const Game = {
       if(this.framesCounter > 1000) this.framesCounter = 0 
 
       // controlamos la velocidad de generación de obstáculos
-      if(this.framesCounter%100==0) this.score++ 
+      if(this.framesCounter%100==0) 
+      this.score++ 
+      
+      // this.count--
       //colision con huesos 
       this.findCollisionBones()
       //colision con corazones
@@ -94,10 +98,14 @@ const Game = {
 
     this.ScoreBoardBones = ScoreBoardBones
     this.ScoreBoardBones.init(this.ctx)
+
+    this.Count = Count
+    this.Count.init(this.ctx)
     // this.Board = Board
     // this.Board.init(this.ctx)
 
     this.score = 0
+    // this.count = 0
     this.bones = []
     this.hearts = []
     this.cats = []
@@ -122,6 +130,7 @@ const Game = {
     this.platforms2.forEach( elm => elm.draw()) 
     this.player.draw(this.framesCounter)  
     this.drawScore()
+    // this.drawCount()
     this.drawCountHearts()
     this.drawCountBones()
     // this.drawBoard()
@@ -271,10 +280,10 @@ const Game = {
       this.colisionHearts.push(heart)//elemento con el que choca
       //lo guardo en un array y su longitud serán los huesos que ha cogido
       this.numHearts = this.colisionHearts.length
-      console.log('he cogido ' + this.colisionHearts.length +'corazones')
+      // console.log('he cogido ' + this.colisionHearts.length +'corazones')
       document.getElementById("heart_sound").play()
         if(this.numHearts<=0){
-        console.log('finnnnnn')
+        // console.log('finnnnnn')
         this.gameOver()
        }
      }
@@ -305,15 +314,19 @@ findCollisionCats(){
        this.numHearts -= 1
       //  console.log('he cogido ' + this.collisionCats.length +'gatos')
        document.getElementById("cat_sound").play()
-       console.log(this.numHearts)
+      //  console.log(this.numHearts)
        if(this.numHearts === 0){
-        console.log('FINNNNN DEL JUEGOOOOO')
+        // console.log('FINNNNN DEL JUEGOOOOO')
         this.gameOver()
        }
      }
  })
 
 },
+drawCount:function(){
+  this.Count.update(this.count)
+},
+
   drawCountBones:function(){
     this.ScoreBoardBones.update(this.numBones)
   },
